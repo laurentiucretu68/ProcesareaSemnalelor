@@ -22,40 +22,45 @@ def ex1():
     def signal3(t: np.numarray):
         return np.cos(120 * np.pi * t + np.pi / 3)
 
-    def plot_signals(n: int, titles: list, values: np.numarray, real_axis: np.ndarray, colors: list):
+    def plot_signals(n: int, titles: list, values: np.numarray, time: np.ndarray, colors: list, sampled=False):
         fig, axs = plt.subplots(n)
         for index, value in enumerate(values):
-            axs[index].plot(real_axis, value, color=colors[index])
+            if sampled:
+                axs[index].stem(time, value)
+            axs[index].plot(time, value, color=colors[index], marker='o')
             axs[index].set_title(titles[index])
 
         plt.tight_layout()
         plt.show()
 
     initial_step = 0.0005
-    real_axis = np.arange(0, 0.03, initial_step)
-
-    x = signal1(real_axis)
-    y = signal2(real_axis)
-    z = signal3(real_axis)
+    time = np.arange(0, 0.03, initial_step)
+    signals = np.array([
+        signal1(time),
+        signal2(time),
+        signal3(time)
+    ])
     titles = ['Signal 1', 'Signal 2', 'Signal 3']
     colors = ['red', 'green', 'cyan']
-    plot_signals(3, titles, np.array([x, y, z]), real_axis, colors)
+    plot_signals(3, titles, signals, time, colors)
 
     fs = 200
     T = 1 / fs
-    n_sampled = np.arange(0, len(real_axis), int(T / initial_step))
-    real_axis_sampled = real_axis[n_sampled]
-    x_sampled = x[n_sampled]
-    y_sampled = y[n_sampled]
-    z_sampled = z[n_sampled]
+    time_sampled = np.arange(0, 0.03, T)
+    signals_sampled = np.array([
+        signal1(time_sampled),
+        signal3(time_sampled),
+        signal3(time_sampled)
+    ])
 
     titles_sampled = ['Sampled Signal 1', 'Sampled Signal 2', 'Sampled Signal 3']
-    plot_signals(3, titles_sampled, np.array([x_sampled, y_sampled, z_sampled]), real_axis_sampled, colors)
+    plot_signals(3, titles_sampled, signals_sampled, time_sampled, colors, sampled=True)
 
 
 def ex2():
-    def plot_signal(timp: np.ndarray, semnal: np.ndarray, title: str):
+    def plot_signal(timp: np.ndarray, semnal: np.ndarray, title: str, lim: list):
         plt.plot(timp, semnal)
+        plt.xlim(lim)
         plt.title(title)
         plt.xlabel('Timp (secunde)')
         plt.ylabel('Amplitudine')
@@ -65,36 +70,36 @@ def ex2():
     def pct_a():
         frecventa = 400
         nr_esantioane = 1600
-        perioada = 1 / frecventa
 
-        timp = np.linspace(0, nr_esantioane * perioada, nr_esantioane)
+        timp = np.linspace(0, 0.1, nr_esantioane)
         semnal = np.sin(2 * np.pi * frecventa * timp)
-        plot_signal(timp, semnal, 'Semnal sinusoidal de 400 Hz')
+        plot_signal(timp, semnal, 'Semnal sinusoidal de 400 Hz', [0, 0.01])
 
     def pct_b():
         frecventa = 800
         durata = 3
-        nr_esantioane = 100
+        nr_esantioane = 10**6
 
         timp = np.linspace(0, durata, nr_esantioane)
         semnal = np.sin(2 * np.pi * frecventa * timp)
-        plot_signal(timp, semnal, 'Semnal sinusoidal de 800 Hz')
+        plot_signal(timp, semnal, 'Semnal sinusoidal de 800 Hz', [0, 0.01])
 
     def pct_c():
-        frecventa = 240
-        nr_esantioane = 50
+        frecventa = 300
+        nr_esantioane = 10**6
 
-        timp = np.linspace(0, 1, nr_esantioane)
+        timp = np.linspace(0, 0.1, nr_esantioane)
         semnal_sawtooth = np.mod(frecventa * timp, 1)
-        plot_signal(timp, semnal_sawtooth, 'Semnal sawtooth de 240 Hz')
+        print(semnal_sawtooth)
+        plot_signal(timp, semnal_sawtooth, 'Semnal sawtooth de 240 Hz', [0, 0.01])
 
     def pct_d():
         frecventa = 300
-        nr_esantioane = 50
+        nr_esantioane = 10**6
 
-        timp = np.linspace(0, 1, nr_esantioane)
+        timp = np.linspace(0, 0.1, nr_esantioane)
         semnal_sqware = np.sign(np.sin(2 * np.pi * frecventa * timp))
-        plot_signal(timp, semnal_sqware, 'Semnal sqware de 300 Hz')
+        plot_signal(timp, semnal_sqware, 'Semnal sqware de 300 Hz', [0, 0.1])
 
     def pct_e():
         semnal_aleator = np.random.rand(128, 128)
@@ -106,7 +111,7 @@ def ex2():
 
     def pct_f():
         semnal_personalizat = np.zeros((128, 128))
-        semnal_personalizat[::2, 1::2] = 1
+        semnal_personalizat[::2, 1::3] = 1
 
         plt.imshow(semnal_personalizat, cmap='gray')
         plt.title("Semnal 2D Personalizat")
@@ -140,5 +145,5 @@ def ex3():
 
 if __name__ == '__main__':
     # ex1()
-    # x2()
-    ex3()
+    ex2()
+    # ex3()
