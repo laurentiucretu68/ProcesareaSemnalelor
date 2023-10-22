@@ -22,12 +22,15 @@ def ex1():
     def signal3(t: np.numarray):
         return np.cos(120 * np.pi * t + np.pi / 3)
 
-    def plot_signals(n: int, titles: list, values: np.numarray, time: np.ndarray, colors: list, sampled=False):
+    def plot_signals(n: int, titles: list, signals: np.numarray, time: np.ndarray, colors: list, sampled=False,
+                     initial_time=None, initial_signals=None):
         fig, axs = plt.subplots(n)
-        for index, value in enumerate(values):
+        for index, signal in enumerate(signals):
             if sampled:
-                axs[index].stem(time, value)
-            axs[index].plot(time, value, color=colors[index], marker='o')
+                axs[index].stem(time, signal)
+                axs[index].plot(initial_time, initial_signals[index])
+            else:
+                axs[index].plot(time, signal, color=colors[index], marker='o')
             axs[index].set_title(titles[index])
 
         plt.tight_layout()
@@ -49,12 +52,13 @@ def ex1():
     time_sampled = np.arange(0, 0.03, T)
     signals_sampled = np.array([
         signal1(time_sampled),
-        signal3(time_sampled),
+        signal2(time_sampled),
         signal3(time_sampled)
     ])
 
     titles_sampled = ['Sampled Signal 1', 'Sampled Signal 2', 'Sampled Signal 3']
-    plot_signals(3, titles_sampled, signals_sampled, time_sampled, colors, sampled=True)
+    plot_signals(3, titles_sampled, signals_sampled, time_sampled, colors,
+                 sampled=True, initial_time=time, initial_signals=signals)
 
 
 def ex2():
@@ -85,13 +89,13 @@ def ex2():
         plot_signal(timp, semnal, 'Semnal sinusoidal de 800 Hz', [0, 0.01])
 
     def pct_c():
-        frecventa = 300
-        nr_esantioane = 10**6
+        frecventa = 240
+        nr_esantioane = 10**5
 
         timp = np.linspace(0, 0.1, nr_esantioane)
         semnal_sawtooth = np.mod(frecventa * timp, 1)
         print(semnal_sawtooth)
-        plot_signal(timp, semnal_sawtooth, 'Semnal sawtooth de 240 Hz', [0, 0.01])
+        plot_signal(timp, semnal_sawtooth, 'Semnal sawtooth de 240 Hz', [0, 0.03])
 
     def pct_d():
         frecventa = 300
@@ -99,7 +103,7 @@ def ex2():
 
         timp = np.linspace(0, 0.1, nr_esantioane)
         semnal_sqware = np.sign(np.sin(2 * np.pi * frecventa * timp))
-        plot_signal(timp, semnal_sqware, 'Semnal sqware de 300 Hz', [0, 0.1])
+        plot_signal(timp, semnal_sqware, 'Semnal sqware de 300 Hz', [0, 0.01])
 
     def pct_e():
         semnal_aleator = np.random.rand(128, 128)
@@ -145,5 +149,5 @@ def ex3():
 
 if __name__ == '__main__':
     # ex1()
-    ex2()
-    # ex3()
+    # ex2()
+    ex3()
