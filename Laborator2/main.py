@@ -349,7 +349,6 @@ def ex8():
     plt.show()
 
 
-
 if __name__ == '__main__':
     time = np.linspace(start=0, stop=6, num=200)
     ex1(time)
