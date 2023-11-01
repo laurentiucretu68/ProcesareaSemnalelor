@@ -55,7 +55,7 @@ def ex2():
 
     fig, axs = plt.subplots(1, 2)
     fig.suptitle('Exercitiul 2 - figura 1')
-    axs[0].plot(time, x, color='green')
+    axs[0].scatter(time, x, c=np.abs(x), s=1, cmap=cmap)
     axs[0].set_xlabel('Timp')
     axs[0].set_ylabel('Amplitudine')
     axs[0].grid()
