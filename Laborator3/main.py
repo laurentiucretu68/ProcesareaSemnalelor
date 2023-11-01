@@ -30,6 +30,8 @@ def ex1():
 
         plot_filename = os.path.join(directory_name, f"exercitiul1.png")
         plt.savefig(plot_filename)
+        plot_filename = os.path.join(directory_name, f"exercitiul1.pdf")
+        plt.savefig(plot_filename)
         plt.show()
         plt.close(fig)
 
@@ -66,9 +68,12 @@ def ex2():
     axs[1].set_ylabel('Imaginar')
     axs[1].grid()
 
-    plot_filename = os.path.join('exercitiul2', f"exercitiul2_figura1.png")
     plt.tight_layout()
+    plot_filename = os.path.join('exercitiul2', f"exercitiul2_figura1.png")
     plt.savefig(plot_filename)
+    plot_filename = os.path.join('exercitiul2', f"exercitiul2_figura1.pdf")
+    plt.savefig(plot_filename)
+
     plt.show()
     plt.close(fig)
 
@@ -109,9 +114,12 @@ def ex2():
     axs[1, 1].set_aspect('equal')
     axs[1, 1].grid()
 
-    plot_filename = os.path.join('exercitiul2', f"exercitiul2_figura2.png")
     plt.tight_layout()
+    plot_filename = os.path.join('exercitiul2', f"exercitiul2_figura2.png")
     plt.savefig(plot_filename)
+    plot_filename = os.path.join('exercitiul2', f"exercitiul2_figura2.pdf")
+    plt.savefig(plot_filename)
+
     plt.show()
     plt.close(fig)
 
@@ -125,7 +133,7 @@ def ex3():
         X = np.zeros(n, dtype=np.complex128)
         for m in range(n):
             for i in range(n):
-                X[m] += x[i] * (np.cos(2 * np.pi * m * i/n) - 1j * np.sin(2 * np.pi * m * i/n))
+                X[m] += x[i] * np.e ** (-2j * np.pi * m * i / n)
 
         return X
 
@@ -150,8 +158,10 @@ def ex3():
     axs[1].set_ylabel('X(f)')
     axs[1].grid()
 
-    plot_filename = os.path.join('exercitiul3', f"exercitiul3.png")
     plt.tight_layout()
+    plot_filename = os.path.join('exercitiul3', f"exercitiul3.png")
+    plt.savefig(plot_filename)
+    plot_filename = os.path.join('exercitiul3', f"exercitiul3.pdf")
     plt.savefig(plot_filename)
     plt.show()
     plt.close(fig)
