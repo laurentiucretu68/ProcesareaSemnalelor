@@ -351,11 +351,11 @@ def ex8():
 
 if __name__ == '__main__':
     time = np.linspace(start=0, stop=6, num=200)
-    ex1(time)
+    # ex1(time)
     ex2(time)
-    ex3()
-    ex4()
-    ex5()
-    ex6()
-    ex7()
-    ex8()
+    # ex3()
+    # ex4()
+    # ex5()
+    # ex6()
+    # ex7()
+    # ex8()

@@ -39,7 +39,7 @@ def ex1():
     F = dft_matrix(N)
     plot(F, 'exercitiul1')
 
-    print("DFT este unitara?", np.iscomplexobj(F) and np.allclose(np.dot(F, np.conj(F).T), N * np.eye(N), atol=1e-20))
+    print("DFT este unitara?", np.iscomplexobj(F) and np.allclose(np.dot(F, np.conj(F).T), N * np.eye(N), atol=1e-10))
 
 
 def ex2():
