@@ -1,0 +1,24 @@
+\babel@toc {romanian}{}\relax 
+\contentsline {section}{\numberline {1}Introducere}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Contextul și Importanța Eliminării Zgomotului din Imagini}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Istoric}{3}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Zgomotul imaginilor digitale}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Conceptul de reducere al zgomotului}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Zgomotul Aditiv si Multiplicativ}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Zgomotul Gaussian}{5}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Zgomotul Speckle}{5}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Zgomotul Impulsiv}{6}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Analiza Histogramelor pentru Diverse Tipuri de Zgomot}{7}{subsection.2.6}%
+\contentsline {section}{\numberline {3}Algoritmi de reducere a zgomotului din imagini}{8}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Filtrarea Spațială}{8}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Filtre Liniare}{8}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Filtre Non-Liniare}{10}{subsubsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.3}Comparație între Filtrul de Medie și Filtrul Median asupra diferitelor tipuri de zgomote}{10}{subsubsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.2}Filtrarea prin Transformarea Domeniului}{13}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Filtrarea în Domeniul Frecvenței}{13}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Filtrarea în Domeniul Wavelet}{15}{subsubsection.3.2.2}%
+\contentsline {section}{\numberline {4}Restituirea imaginilor}{17}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Deconvoluția Wiener}{17}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Filtrul CLS}{19}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Recuperarea imaginilor îmbătrânite folsind Rețele Neuronale}{22}{section.5}%
+\contentsline {section}{\numberline {6}Concluzie}{25}{section.6}%
